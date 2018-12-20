@@ -10,8 +10,36 @@
 </head>
 
 <body>
+    <input id="input" type="text" placeholder="Enter a city">
+    <button class="btn">Serach</button>
 
+
+
+
+
+    <script id="weather-template" type="text/x-handlebars-template">
+        {{#each allCityData}}
+        <div id="each-city">
+            <div id="name">{{name}}</div>
+            <div id="temp">{{temperture}}</div>
+            <div id="cond">{{condition}}</div>
+            <img src="{{conditionPic}}">
+            <div id="update">{{updatedAt}}</div>
+            <button id="save">Save</button>
+            <button id="delete">Remove</button>
+        </div>
+            {{/each}} 
+        
+        
+        
+    </script>
+
+    <div id="weather-info">
+    </div>
+
+    <script src="./handlebars/dist/handlebars.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
+    <script src="Renderer.js"></script>
     <script src="TempManager.js"></script>
     <script src="main.js"></script>
 

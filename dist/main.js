@@ -3,27 +3,25 @@ let tempManager = new TempManager()
 
 
 const handleSearch = function () {
-    $(".btn").on("click", async function () {
+    $("#btn").on("click", async function () {
         await tempManager.getCityData($('#input').val())
-        console.log(tempManager.cityData)
         renderer.renderData(tempManager.cityData)
     })
 }
 handleSearch()
 
-
-// const saveButton = function () {
-// }
-
-
-$("body").on("click", "#save" ,function () {
-    console.log($(this).siblings("#name").text())
+$("body").on("click", "#save", function () {
     tempManager.saveCity($(this).siblings("#name").text())
-    // saveButton()
+    alert("City Saved")
 })
 
-const loadPage = function () {
-    tempManager.getDataFromDB()
-       console.log(tempManager.cityData)
+$("body").on("click", "#delete", function () {
+    tempManager.removeCity($(this).siblings("#name").text())
+    renderer.renderData(tempManager.cityData)
+})
+const loadPage = async function () {
+    await tempManager.getDataFromDB()
+    renderer.renderData(tempManager.cityData)
 }
 loadPage()
+

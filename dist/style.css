@@ -1,0 +1,64 @@
+body {
+    background-image: url("https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/cloudy-sky.jpg?itok=FDxeE-I5");
+    background-size: 160vh;  
+    font-family: ABeeZee, sans-serif;
+}
+#each-city {
+    display: grid;
+    /* height: 100vh; */
+     /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);  */
+    justify-content: strech;
+    align-items: center;
+    align-content: space-evenly;
+    grid-template-areas: 
+    "n t i"
+    "s . c"
+    "d . u";
+};
+
+
+#name{
+    grid-area: n;
+   }
+
+#temp{
+    grid-area: t;
+       
+}
+
+#cond{
+    grid-area: c;
+    text-align: center;
+}
+
+#img{
+    grid-area: i;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
+ #update{
+    grid-area: u;
+ }
+ 
+ #save{
+    grid-area: s;
+ }
+ 
+ #delete{
+    grid-area: d;
+ 
+ }
+
+
+
+#input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e4e0e0;
+    width: 30%;
+}
+.hidden {
+    display: none !important;
+}

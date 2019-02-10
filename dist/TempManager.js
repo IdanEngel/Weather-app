@@ -3,14 +3,6 @@ class TempManager {
         this.cityData = []
     }
 
-    getDataFromDB() {
-        $.get('/cities', function (data) {
-            if (data) {
-                this.cityData = data
-            }
-            console.log(this.cityData)
-        })
-    }
 
     async getCityData(cityName) {
 
@@ -22,12 +14,10 @@ class TempManager {
             condition: data.current.condition.text,
             conditionPic: data.current.condition.icon
         })
-        console.log(this.cityData)
     }
 
     saveCity(cityName) {
         let data = this.cityData.find(f => f.name === cityName)
-        console.log(data)
         $.post(`/city`, data, function () {
         })
     }
@@ -36,12 +26,21 @@ class TempManager {
         $.ajax({
             method: "DELETE",
             url: `/city/${cityName}`,
-            success: () => { }
+            success: () => {
+                let deleting = this.cityData.findIndex(f => f.name === cityName)
+                this.cityData.splice(deleting, 1)
+
+            }
         })
     }
+
+    async getDataFromDB() {
+        let data = await $.get('/cities')
+        if (data) {
+            this.cityData = data
+        }
+    }
 }
-
-
 
 
 

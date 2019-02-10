@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const citySchema = new Schema ({
     name: String,
-    updatedAt: Date,
+    updatedAt: String,
     temperture: Number,
     condition: String,
     conditionPic: String

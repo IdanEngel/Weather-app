@@ -7,11 +7,16 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet">
+
+
+
 </head>
 
 <body>
     <input id="input" type="text" placeholder="Enter a city">
-    <button class="btn">Serach</button>
+    <i  id="btn" class="material-icons">search</i>
 
 
 
@@ -21,12 +26,12 @@
         {{#each allCityData}}
         <div id="each-city">
             <div id="name">{{name}}</div>
-            <div id="temp">{{temperture}}</div>
+            <div id="temp">{{temperture}}°</div>
             <div id="cond">{{condition}}</div>
-            <img src="{{conditionPic}}">
+            <img id="img" src="{{conditionPic}}">
             <div id="update">{{updatedAt}}</div>
-            <button id="save">Save</button>
-            <button id="delete">Remove</button>
+            <i class="material-icons" id="save">add_circle_outline</i>
+            <i class="material-icons" id="delete">clear</i>
         </div>
             {{/each}} 
         

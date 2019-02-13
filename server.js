@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-mongoose.connect(process.env.CONNECTION_STRING || "mongodb://localhost/weatherDB", { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/weatherDB", { useNewUrlParser: true })
 
 app.use('/', api)
 
